@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import MovieCard from '../components/MovieCard'
-
+import '../styles/moviePage.css'
 
 const HomePage = () => {
 
@@ -14,9 +14,9 @@ const HomePage = () => {
         .catch(error=>console.log(error))
     },[page])
   return (
-    <div>
-        <h1></h1>
-        <div className=''>
+    <div className='home-page'>
+        <h1>Popular Movies </h1>
+        <div className='movie-grid'>
             {movies.map(movie=><MovieCard key={movie.id} movie={movie}/>)}
         </div>
     </div>

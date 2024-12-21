@@ -14,9 +14,9 @@ const UpComingMovie= () => {
         .catch(error=>console.log(error))
     },[page])
   return (
-    <div>
-        <h1></h1>
-        <div className=''>
+    <div className='home-page'>
+        <h1>Upcoming Movies</h1>
+        <div className='movie-grid'>
             {movies.map(movie=><MovieCard key={movie.id} movie={movie}/>)}
         </div>
     </div>

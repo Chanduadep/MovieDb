@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import '../styles/singleMovie.css';
 
 const SingleMoviePage = () => {
   const { id } = useParams();
@@ -19,26 +20,38 @@ const SingleMoviePage = () => {
     return <h2>Movies are Loading</h2>
   }
   return (
-    <div>
-         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-         <h1>{movie.title}</h1>
-         <p>{movie.overview}</p>
-         <h2>Cast</h2>
-      <div className="cast-list">
-        {cast.map((members) => (
-          <div key={members.id} className="cast-member">
-            {members.profile_path ? (
-              <img 
-                src={`https://image.tmdb.org/t/p/w500${members.profile_path}`} 
-                alt={members.name} 
-                className="cast-image" 
-              />
-            ) : (
-              <p>No image available</p>
-            )}
-            <p>{members.name} as {members.character}</p>
-          </div>
-        ))}
+    <div className="page-container">
+      <div className="movie-container">
+        <img
+          className="movie-image"
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+        />
+        <div className="movie-details">
+          <h1>{movie.title}</h1>
+          <h1>Overview</h1>
+          <p>{movie.overview}</p>
+        </div>
+      </div>
+
+      <div className="cast-section">
+        <h2>Cast</h2>
+        <div className="cast-list">
+          {cast.map((member) => (
+            <div key={member.id} className="cast-member">
+              {member.profile_path ? (
+                <img
+                  className="cast-image"
+                  src={`https://image.tmdb.org/t/p/w500${member.profile_path}`}
+                  alt={member.name}
+                />
+              ) : (
+                <p>No image available</p>
+              )}
+              <p>{member.name} as {member.character}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

@@ -19,7 +19,7 @@ const MovieCard = ({ movie }) => {
       />
       <div >
         <h3>{movie.title}</h3>
-        <p>{movie.vote_average.toFixed(1)} / 10</p>
+        <p>Rating:{movie.vote_average.toFixed(1)} / 10</p>
       </div>
     </div>
   );
