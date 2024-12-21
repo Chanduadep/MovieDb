@@ -1,9 +1,10 @@
-const Pagination = ({ currentPage, onPageChange }) => {
+import '../styles/Pagination.css'
+const Pagination = ({ page, onPageChange }) => {
     return (
-      <div>
-        <button disabled={currentPage === 1} onClick={() => onPageChange(currentPage - 1)}>Previous</button>
-        <span>Page {currentPage}</span>
-        <button onClick={() => onPageChange(currentPage + 1)}>Next</button>
+      <div className="pagination">
+        <button disabled={page === 1} onClick={() => onPageChange(page - 1)}>Previous</button>
+        <span>Page {page}</span>
+        <button onClick={() => onPageChange(page + 1)}>Next</button>
       </div>
     );
   };
